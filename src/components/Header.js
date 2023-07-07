@@ -1,9 +1,18 @@
 import ggr from "./ggr-logo.jpeg";
 import "./Button";
 import "./Header.css";
-import { MenuButton, DarkButton } from "./Button";
+import { MenuButton, DarkButton, UserInfoButton } from "./Button";
 import { MenuUnfoldOutlined, MenuFoldOutlined } from "@ant-design/icons";
-const Header = ({ collapseEvent, collapsed, darkEvent }) => {
+const styleButtonDark = {
+	margin: "auto 5px",
+};
+const Header = ({
+	collapseEvent,
+	collapsed,
+	darkEvent,
+	dropdownEvent,
+	dropItemEvent,
+}) => {
 	return (
 		<header className="App-header">
 			<div className="App-logo-container">
@@ -16,8 +25,14 @@ const Header = ({ collapseEvent, collapsed, darkEvent }) => {
 					collapsed={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
 				/>
 			</div>
-			<div className="button-dark-container">
-				<DarkButton className="button-dark" eventChange={darkEvent} />
+			<div className="right-menu-container">
+				<DarkButton style={styleButtonDark} eventChange={darkEvent} />
+				<div className="user-info-container">
+					<UserInfoButton
+						dropdownClicked={dropItemEvent}
+						itemClicked={dropItemEvent}
+					/>
+				</div>
 			</div>
 		</header>
 	);

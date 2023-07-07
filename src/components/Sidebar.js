@@ -8,7 +8,7 @@ import {
 import { Menu, Layout } from "antd";
 const { Sider } = Layout;
 
-function getItem(label, key, icon, children, type) {
+export function getItem(label, key, icon, children, type) {
 	return {
 		key,
 		icon,

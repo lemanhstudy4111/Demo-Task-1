@@ -1,10 +1,12 @@
-import { Switch, Button } from "antd";
+import { Switch, Button, Dropdown, Space } from "antd";
+import { getItem } from "./Sidebar";
+import { UserOutlined } from "@ant-design/icons";
 import "./Button.css";
 
-export function DarkButton({ eventChange }) {
+export function DarkButton({ style, eventChange }) {
 	return (
 		<>
-			<Switch onChange={eventChange} />
+			<Switch style={style} onChange={eventChange} />
 		</>
 	);
 }
@@ -15,5 +17,19 @@ export function MenuButton({ eventChange, collapsed }) {
 				{collapsed}
 			</Button>
 		</div>
+	);
+}
+export function UserInfoButton({ dropdownClicked, itemClicked }) {
+	const items = [getItem("Sign out", "out")];
+
+	return (
+		<Dropdown menu={{ items }}>
+			<a onClick={dropdownClicked}>
+				<Space>
+					Hover me
+					<UserOutlined />
+				</Space>
+			</a>
+		</Dropdown>
 	);
 }
