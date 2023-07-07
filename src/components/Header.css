@@ -1,0 +1,39 @@
+.App-header {
+	width: 100%;
+	height: 40px;
+	background-color: #f1f1f1;
+	display: flex;
+	align-items: center;
+	position: fixed;
+	margin: auto;
+	flex-direction: row;
+}
+.App-logo-container {
+	left: 0px;
+	width: auto;
+	/* max-width: 30%; */
+	height: auto;
+	max-height: 100%;
+	display: flex;
+}
+.App-logo {
+	object-fit: cover;
+}
+.button-dark-container {
+	position: absolute;
+	right: 10px;
+	width: 30px;
+	padding: 5px;
+	display: flex;
+}
+.button-menu-container {
+	display: flex;
+}
+.open {
+	margin-left: 50px;
+	transition: margin-left 500ms;
+}
+.close {
+	margin-left: 10px;
+	transition: margin-left 500ms;
+}

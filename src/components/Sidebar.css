@@ -1,0 +1,26 @@
+.Sidebar {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	background-color: #f1f1f1;
+	height: 100%; /* Full height */
+	position: fixed; /* Make it stick, even on scroll */
+	overflow: auto; /* Enable scrolling if the sidenav has too much content */
+	display: flex;
+	flex-direction: column;
+}
+
+.sidebar-top {
+	width: auto;
+	height: 20%;
+	align-items: center;
+}
+.menu-items {
+	background-color: #f1f1f1;
+}
+.collapsed {
+	width: auto;
+}
+.not-collapsed {
+	width: 25%;
+}
