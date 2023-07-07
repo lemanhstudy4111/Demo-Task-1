@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import { DarkButton } from "./components/Button";
+import { useState } from "react";
 import Header from "./components/Header";
 import "./App.css";
 import Sidebar from "./components/Sidebar";
@@ -11,44 +10,22 @@ function App() {
 		if (theme === "light") setTheme("dark");
 		else setTheme("light");
 	};
-	useEffect(() => {
-		document.body.className = theme;
-	}, [theme]);
-	//why doesn't it change both the header and the sidebar menu when toggle dark mode?
 
 	const toggleCollapse = () => setCollapsed(!collapsed);
 
 	return (
 		<div className={theme}>
-			<div className="header-container">
-				<Header
-					collapsed={collapsed}
-					collapseEvent={toggleCollapse}
-					darkEvent={toggleDark}
-				/>
-			</div>
-			<div>
+			<Header
+				collapsed={collapsed}
+				collapseEvent={toggleCollapse}
+				darkEvent={toggleDark}
+			/>
+			<div style={{ display: "flex" }}>
 				<Sidebar collapsed={collapsed} />
+				<div className="main-content" style={{ flex: "1" }}></div>
 			</div>
 		</div>
 	);
 }
 
 export default App;
-
-{
-	/* <header className="App-header">
-  <img src={logo} className="App-logo" alt="logo" />
-  <p>
-  Edit <code>src/App.js</code> and save to reload.
-  </p>
-  <a
-    className="App-link"
-    href="https://reactjs.org"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    Learn React
-  </a>
-</header> */
-}

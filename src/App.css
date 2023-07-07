@@ -5,3 +5,10 @@
 .dark {
 	background-color: #121212;
 }
+.main-content {
+	height: 100%;
+	width: calc(100vh - 80px);
+	margin: auto;
+	position: relative;
+	z-index: inherit;
+}

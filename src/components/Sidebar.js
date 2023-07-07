@@ -5,8 +5,8 @@ import {
 	UploadOutlined,
 	LineChartOutlined,
 } from "@ant-design/icons";
-import "./Sidebar.css";
-import { Menu } from "antd";
+import { Menu, Layout } from "antd";
+const { Sider } = Layout;
 
 function getItem(label, key, icon, children, type) {
 	return {
@@ -28,23 +28,22 @@ const item = [
 const Sidebar = ({ collapsed }) => {
 	const [current, setCurrent] = useState(item[0].key);
 	const handleButtonClick = (e) => {
-		console.log("click", e.key);
+		console.log("current", current, "click", e.key);
 		setCurrent(e.key);
 	};
 	console.log(collapsed);
 	return (
-		<div className={`Sidebar ${collapsed ? "collapsed" : "not-collapsed"}`}>
-			<div className="sidebar-top"></div>
-			<div className="sidebar-items">
-				<Menu
-					onClick={handleButtonClick}
-					className="menu-items"
-					items={item}
-					mode="inline"
-					inlineCollapsed={collapsed}
-				/>
-			</div>
-		</div>
+		<Sider trigger={null} collapsible collapsed={collapsed}>
+			<Menu
+				onClick={handleButtonClick}
+				items={item}
+				mode="inline"
+				defaultSelectedKeys={["dash"]}
+				style={{
+					height: "calc(100vh - 40px)",
+				}}
+			/>
+		</Sider>
 	);
 };
 export default Sidebar;
