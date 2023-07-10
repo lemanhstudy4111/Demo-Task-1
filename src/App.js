@@ -2,16 +2,25 @@ import { useState } from "react";
 import Header from "./components/Header";
 import "./App.css";
 import Sidebar from "./components/Sidebar";
+import { mockData, columns } from "./data/phonebook";
+import { Table, Card } from "antd";
+import gIcon from "./images/logo.svg";
+import ggr from "./components/ggr-logo.jpeg";
 
 function App() {
 	const [theme, setTheme] = useState("light");
 	const [collapsed, setCollapsed] = useState(true);
+	const [logo, setLogo] = useState(gIcon);
 	const toggleDark = () => {
 		if (theme === "light") setTheme("dark");
 		else setTheme("light");
 	};
 
-	const toggleCollapse = () => setCollapsed(!collapsed);
+	const toggleCollapse = () => {
+		setCollapsed(!collapsed);
+		if (logo === gIcon) setLogo(ggr);
+		else setLogo(gIcon);
+	};
 
 	const dropdownClicked = (e) => {
 		e.preventDefault();
@@ -29,12 +38,24 @@ function App() {
 					collapseEvent={toggleCollapse}
 					darkEvent={toggleDark}
 					dropItemEvent={dropdownItemClicked}
-					dropdownEvent={dropdownClicked}
+					dropdownEvent={() => dropdownClicked}
+					logoSrc={logo}
 				/>
 			</div>
 			<div style={{ display: "flex" }}>
 				<Sidebar collapsed={collapsed} />
-				<div className="main-content" style={{ flex: "1" }}></div>
+				<div className="main-content">
+					<div className="table-container">
+						<Card title="Phone Book" bordered={false} style={{ width: "100%" }}>
+							<Table dataSource={mockData} columns={columns} />
+						</Card>
+					</div>
+					{/* <div className="table-container">
+						<Card title="Phone Book" bordered={false} style={{ width: "100%" }}>
+							<Table dataSource={mockData} columns={columns} />
+						</Card>
+					</div> */}
+				</div>
 			</div>
 		</div>
 	);
