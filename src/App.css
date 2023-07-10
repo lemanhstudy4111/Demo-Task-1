@@ -11,4 +11,19 @@
 	margin: auto;
 	position: relative;
 	z-index: inherit;
+	flex: 1;
+	display: flex;
+	flex-flow: row wrap;
+	align-content: center;
+	justify-content: space-around;
+}
+.table-container {
+	display: flex;
+	height: 100%;
+	width: 100%;
+	margin: 10px;
+	justify-content: center;
+	align-items: center;
+	order: 1;
+	float: left;
 }

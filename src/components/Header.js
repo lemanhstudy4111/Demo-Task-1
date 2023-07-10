@@ -1,4 +1,3 @@
-import ggr from "./ggr-logo.jpeg";
 import "./Button";
 import "./Header.css";
 import { MenuButton, DarkButton, UserInfoButton } from "./Button";
@@ -12,11 +11,12 @@ const Header = ({
 	darkEvent,
 	dropdownEvent,
 	dropItemEvent,
+	logoSrc,
 }) => {
 	return (
 		<header className="App-header">
 			<div className="App-logo-container">
-				<img src={ggr} className="App-logo" alt="ggr logo" />
+				<img id="logo" src={logoSrc} className="App-logo" alt="ggr logo" />
 			</div>
 			<div className={`button-menu-container ${collapsed ? "close" : "open"}`}>
 				<MenuButton

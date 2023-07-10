@@ -24,9 +24,9 @@ export function UserInfoButton({ dropdownClicked, itemClicked }) {
 
 	return (
 		<Dropdown menu={{ items }}>
-			<a onClick={dropdownClicked}>
+			<a href="_blank" onClick={dropdownClicked}>
 				<Space>
-					Hover me
+					User Info
 					<UserOutlined />
 				</Space>
 			</a>
